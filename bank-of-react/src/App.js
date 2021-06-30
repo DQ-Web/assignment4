@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import LogIn from "./components/LogIn";
 import Debits from "./components/Debits";
+import Credits from './components/Credits';
 
 const App = () => {
   const [accountBalance, setAccountBalance] = useState(14568.27);
@@ -12,6 +13,7 @@ const App = () => {
     memberSince: "07/23/96",
   });
   const [debitTransactions, setDebitTransactions] = useState([]);
+  const [creditTransactions, setCreditTransactions] = useState([]);
 
   const mockLogIn = (logInInfo) => {
     const newUser = { ...currentUser };
@@ -41,6 +43,15 @@ const App = () => {
     />
   );
 
+  const CreditsComponent = () => (
+    <Credits 
+      transactions={creditTransactions}
+      setTransactions={setCreditTransactions}
+      accountBalance={accountBalance} 
+      setAccountBalance={setAccountBalance}
+    />
+  );
+
   return (
     <Router>
       <Switch>
@@ -48,6 +59,7 @@ const App = () => {
         <Route exact path="/userProfile" render={UserProfileComponent} />
         <Route exact path="/login" render={LogInComponent} />
         <Route exact path="/debits" render={DebitsCompenent} />
+        <Route exact path="/credits" render={CreditsComponent} />
       </Switch>
     </Router>
   );
