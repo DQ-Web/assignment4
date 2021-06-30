@@ -2,7 +2,7 @@ import React from "react";
 import AccountBalance from "./AccountBalance";
 import { Link } from "react-router-dom";
 
-const Home = (props) => {
+const Home = ({accountBalance}) => {
   return (
     <div>
       <img
@@ -26,7 +26,7 @@ const Home = (props) => {
         </li>
       </ul>
 
-      <AccountBalance accountBalance={props.accountBalance} />
+      <AccountBalance accountBalance={accountBalance} />
     </div>
   );
 };
