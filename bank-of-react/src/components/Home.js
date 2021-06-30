@@ -21,6 +21,9 @@ const Home = (props) => {
         <li>
           <Link to="/debits">Debits</Link>
         </li>
+        <li>
+          <Link to="/credits">Credits</Link>
+        </li>
       </ul>
 
       <AccountBalance accountBalance={props.accountBalance} />
